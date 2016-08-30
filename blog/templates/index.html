@@ -1,0 +1,255 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>微博</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'mycss.css' %}">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$("#left-btn").click(function(){
+			$("#p-hide").css('display','block');
+			
+		});
+	});
+		function loadcontent(){
+			$("#sub-btn").css("background","rgb(253,129,73)");
+			
+    		var oUl=document.getElementById("list-ul");
+    		$("#list-ul").css({"list-style-type":"none"});
+    		var aLi=oUl.getElementsByTagName("li");
+    		var oLi=document.createElement("li");
+    		oLi.innerHTML=$("#m-top-ta").val();
+    		$("#m-top-ta").val("");
+    		oLi.className="li-create";
+    		if (aLi.length) {
+    			oUl.insertBefore(oLi,aLi[0]);
+    		}else{
+    			oUl.appendChild(oLi);
+    		}
+			
+		}
+	</script>
+	
+</head>
+<body>
+<div id="head-banner">
+	<div id="head-container">
+		<img src="{% static 'image/wb.jpg' %}" height="40px">
+		<div id="head-input-div">
+			<input type="text" name="text" id="head-input">
+			<img src="{% static 'image/wbs.jpg' %}" id="wbs">
+		</div>
+		<div id="head-ul">
+			<ul>
+			<li>
+				<img src="{% static 'image/wbh1.jpg' %}">
+				<p>首页</p>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<img src="{% static 'image/wbh2.jpg' %}">
+				<p>发现</p>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<img src="{% static 'image/wbh3.jpg' %}">
+				<p>游戏</p>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<img src="{% static 'image/wbh4.jpg' %}">
+				<p>用户名</p>
+			</li>
+		</ul>
+		</div>
+		<div id="head-ul-tail">
+			<ul>
+			<li>
+				<img src="{% static 'image/wbh5.jpg' %}">
+				
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<img src="{% static 'image/wbh6.jpg' %}">
+				
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<img src="{% static 'image/wbh7.jpg' %}">
+				
+			</li>
+		</ul>
+		</div>
+		
+	</div>
+</div>
+
+
+<div id="container">
+	<div id="oback"></div>
+		<div id="left">
+			<div id="left-top">
+				<div id="p">			
+					<p>首页</p>
+					<div id="red"></div>
+				</div>
+				<div id="p">
+					<p>我的收藏</p>
+				</div>
+				<div id="p">
+					<p>我的赞</p>
+				</div>		
+			</div>
+			<div id="left-top">
+				<div id="p">			
+					<p>热门微博</p>
+					<div id="red"></div>
+				</div>
+					
+			</div>
+			<div id="left-top">
+				<div id="p">			
+					<p>好友圈</p>				
+				</div>
+				<div id="p">			
+					<p>群微博</p>				
+				</div>
+				<div id="p">			
+					<p>特别关注</p>				
+				</div>
+				<div id="p">			
+					<p>名人明星</p>				
+				</div>
+				<div id="p">			
+					<p>航空</p>				
+				</div>
+				<div id="p">			
+					<p>运动员</p>				
+				</div>
+				<div id="p">			
+					<p>互联网</p>				
+				</div>
+				<div id="p">			
+					<p>科学</p>				
+				</div>	
+				<div id="p-hide" style="display: none;">			
+					<p>悄悄关注</p>				
+				</div>	
+				<div id="show-p-div">
+					<input type="button" value="展开" id="left-btn" onclick="show-p;">	
+				</div>
+				
+					
+			</div>
+		</div>
+		<div id="middle">
+			<div id="middle-top">
+				<div id="middle-top-text">
+					<div id="middle-top-text-1">
+						<p>有什么新鲜事想告诉大家？</p>
+					</div>
+					<div id="middle-top-text-2">
+						<p>首富王健林给年轻人支招：先定小目标，比方说先挣一个亿</p>
+					</div>
+					<div id="middle-top-text-3">
+						<p>热门微博</p>
+					</div>
+				</div>
+				<div id="middle-top-ta">
+					<textarea id="m-top-ta"></textarea>
+				</div>
+				
+				<div id="middle-top-bottom">
+					<div id="middle-top-bottom-ul">
+					<ul>
+						<li><img src="">表情</li>
+						<li>图片</li>
+						<li>视频</li>
+						<li>话题</li>
+						<li>头条文章</li>
+						<li>...</li>
+					</ul>
+						
+					</div>
+					<div id="middle-top-bottom-tail">
+						<div id="middle-top-bottom-tail-sl">
+							<select id="m-tail-sl">
+								<option>公开</option>
+								<option>隐私</option>
+							</select>
+						</div>
+						<div id="middle-top-bottom-tail-btn">
+							<input type="submit" value="发布" id="sub-btn" onclick="loadcontent()">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<ul id="list-ul">
+					
+				</ul>
+			</div>
+		</div>
+		<div id="right">
+			<div id="right-top">
+				<div id="right-top-back-img">
+					<img src="{% static "image/wt-b.jpg" %}">
+					<img src="{% static 'image/wt.jpeg' %}" >
+				</div>
+				<div id="top-user">
+					<p>用户名</p>
+				</div>
+			</div>
+			<div id="right-middle">
+				<div id="rm-content">
+					<div id="c-top">
+						<p>主播红人榜</p>
+					</div>
+				</div>
+			</div>
+			<div id="right-bottom">
+				<div></div>
+			</div>
+		</div>
+</div>
+	
+</div>
+	
+
+</body>
+</html>
+<!--<div id="middle-list">
+				<div id="list-top">
+					<div id="list-img">
+					<img src="" style="width: 50px;height:50px;border-radius: 25px;background: red">
+					</div>
+					<div id="list-content">
+						<div id="user-name">
+							<p>it之家</p>
+						</div>
+						<div id="post-time">
+							<p>27分钟前 来自 IT之家</p>
+						</div>
+						<div id="post-content">
+							<p>【秒速10公里，超7000吨太空垃圾绕地球飞行】美国宇航局的科学家估计，在接近地球的空间环境，有超过7000吨的废弃物质，它们以每秒10公里的速度飞行，比发射出去的子弹还快，这意味着人造卫星或航天器即使被像沙粒大小的碎片撞击，都可能带来灾难性的后果……详情点击：</p>
+						</div>
+					</div>
+				</div>
+				<div id="list-bottom">
+					<ul>
+						<li>收藏</li>
+						<li>转发</li>
+						<li>评论</li>
+						<li>赞</li>
+					</ul>
+				</div>
+				
+			</div> -->
